@@ -7,10 +7,13 @@
 <body>
     <h1 data-test-id="heading">Words</h1>
     <form action="{{url_for('index')}}" method="post" data-test-id="form">
-        <input type="text" placeholder="Enter a word">
+        <input type="text" placeholder="Enter a word" name="word">
         <input type="submit" value="Add">
     </form>
     <ol data-test-id="word-list">
+        {% for i in range(len) %}
+            <li data-test-id="word">{{words[i].word}}</li>
+        {% endfor %}
     </ol>
 </body>
 </html>

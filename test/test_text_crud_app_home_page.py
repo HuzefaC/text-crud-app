@@ -27,6 +27,10 @@ class TestTextCrudAppHomePage(unittest.TestCase):
     def test_if_has_list_of_words(self):
         word_list = self._find('word-list')
         self.assertIsNotNone(word_list)
+    
+    def test_if_has_list_item(self):
+        word = self._find('word')
+        self.assertIsNotNone(word)
 
     def _find(self, val):
         return self.driver.find_element(By.CSS_SELECTOR, f'[data-test-id="{val}"]')
