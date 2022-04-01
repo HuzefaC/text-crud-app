@@ -6,5 +6,11 @@
 </head>
 <body>
     <h1 data-test-id="heading">Words</h1>
+    <form action="{{url_for('index')}}" method="post" data-test-id="form">
+        <input type="text" placeholder="Enter a word">
+        <input type="submit" value="Add">
+    </form>
+    <ol data-test-id="word-list">
+    </ol>
 </body>
 </html>
