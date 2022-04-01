@@ -17,6 +17,7 @@ class Word(db.Model):
 def index():
     if request.method == 'POST':
         word = request.form['word']
+        word = word.strip()
         new_word = Word(word=word)
         try:
             db.session.add(new_word)
