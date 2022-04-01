@@ -7,7 +7,7 @@ PATH = "../geckodriver.exe"
 class TestTextCrudApp(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox(executable_path=PATH)
-        self.driver.get('https://localhost:5000')
+        self.driver.get('http://localhost:5000')
 
     def tearDown(self):
         self.driver.quit()
