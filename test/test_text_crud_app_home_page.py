@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 PATH = "../geckodriver.exe"
 
 
-class TestTextCrudApp(unittest.TestCase):
+class TestTextCrudAppHomePage(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox(executable_path=PATH)
         self.driver.get('http://localhost:5000')
@@ -17,8 +17,12 @@ class TestTextCrudApp(unittest.TestCase):
         self.assertIn('Text Crud', self.driver.title)
 
     def test_page_heading_is_words(self):
-        heading = self._find(val='heading')
+        heading = self._find('heading').text
         self.assertEqual(heading, 'Words')
+
+    def test_if_add_page_has_input_form(self):
+        form = self._find('form')
+        self.assertIsNotNone(form)
 
     def _find(self, val):
         return self.driver.find_element(By.CSS_SELECTOR, f'[data-test-id="{val}"]')
